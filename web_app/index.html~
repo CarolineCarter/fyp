@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<link rel="stylesheet" type="text/css" href="/static/base.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="static/querycalc.js"></script>
+<script type="text/javascript">
+// once the DOM is ready start the calculator listener function
+$( document ).ready( calcListener );
+</script>
+<title>Simple RESTful Calculator - Web Client</title>
+</head>
+<body>
+<div class="outer-container">
+<h1>Calculator</h1>
+<form id="calcform" method="POST">
+<div class="arguments">
+Name: <input type="text" id="name" value = ""/><br/>
+Argument 1: <input type="text" id="argument1" value = ""/><br/>
+Argument 2: <input type="text" id="argument2" value = ""/><br/>
+Answer: <input type="text" id="answer" value= "" /> <br />
+</div>
+<div class="buttons">
+<div class="button-row">
+<input class= "func-btn" type="button" id="add" value="Add"/>
+</div>
+</div>
+</form>
+</div>
+</body>
+</html>
