@@ -11,10 +11,10 @@ RUN apt-get install -y curl
 # Download and Install Nginx
 RUN apt-get install -y nginx 
 
-ADD index.html /var/www/
+#ADD index.html /var/www/
 ADD mime_types /etc/nginx/
-ADD querycalc.js /var/www/static/
-ADD base.css /var/www/
+#ADD querycalc.js /var/www/static/
+#ADD base.css /var/www/
 
 # Remove the default Nginx configuration file
 RUN rm -v /etc/nginx/nginx.conf
