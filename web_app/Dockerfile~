@@ -20,7 +20,7 @@ ADD mime_types /etc/nginx/
 RUN rm -v /etc/nginx/nginx.conf
 
 # Copy a configuration file from the current directory
-VOLUME /var/log/webapp/nginx.conf /etc/nginx/
+ADD nginx.conf /etc/nginx/nginx.conf
 
 EXPOSE 80
 

@@ -5,29 +5,47 @@ worker_processes 1;
 events { worker_connections 1024; }
 
 http {
-
+	
+	include mime_types;
     sendfile on;
  gzip_types text/plain text/xml text/css
                text/comma-separated-values
                text/javascript application/x-javascript
                application/atom+xml;
 
+
+ #upstream cpyserver {
+
+        #server 172.17.0.3.:8000 fail_timeout=0;
+	#proxy_pass http://172.17.0.17:8000;
+        #resolver 8.8.8.8 valid=300s;
+
+    #}
+map $http_origin $cors_header {
+	default "";
+	"http://172.17.0.3:8000" "$http_origin";
+
+}
+
     server {
 
         # Running port
         listen 80 default_server;
 	
-
+#open tcp
        
         location / {
-        	root /var/www;
+		add_header Access-Control-Allow-Origin $cors_header;
+        	root /var/www/templates;
 		index index.html index.htm; 
+		
 
 location ~* \.(js|javascript|css)$ {
         access_log off;
         expires max;
-        root /var/www;
+        root /var/www/templates;
     }
+
 }
 	
     
