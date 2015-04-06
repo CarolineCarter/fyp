@@ -12,7 +12,7 @@ app = Flask(__name__)
 #people.insert({"name":"Lexa"})
 #people.insert({"name":"Ryan"})
 @app.route('/')
-def hello_world():
+def hello_world()
     #return 'Hello Docker'
 	return render_template('index.html')
 
