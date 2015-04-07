@@ -16,8 +16,8 @@ $( document ).ready( calcListener );
 <h1>Calculator</h1>
 <form id="calcform" method="POST">
 <div class="arguments">
-number 1: <input type="text" id="argument1" value = ""/><br/>
-number 2: <input type="text" id="argument2" value = ""/><br/>
+number1: <input type="text" id="argument1" value = ""/><br/>
+number2: <input type="text" id="argument2" value = ""/><br/>
 </div>
 <div class="buttons">
 <div class="button-row">
