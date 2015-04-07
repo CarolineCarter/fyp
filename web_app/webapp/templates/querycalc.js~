@@ -21,7 +21,7 @@ function calcListener ( jQuery ) {
 			});
 // Makes an ajax call to url "resource" supplying arg1 and arg2
 		$.ajax({
-			type: "GET",
+			type: "POST",
 			url: "http://172.17.0.3:8000/add",
 			data: JSON.stringify({ argument1: arg1, argument2: arg2 }),
 			dataType: "jsonp",

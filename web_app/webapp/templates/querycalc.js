@@ -1,5 +1,5 @@
 function calcListener ( jQuery ) {
-	console.log( "READY!" );
+	console.log( "!" );
 	$( "#add" ).click( function ( e ) {
 		var arg1 = $( "#argument1" ).val();
 		var arg2 = $( "#argument2" ).val();

@@ -5,7 +5,7 @@ from pymongo import Connection
 import math
 app = Flask(__name__)
 
-#con = Connection("172.17.0.2:27017")
+con = Connection("172.17.0.2:27017")
 #db = con.test_database
 #people = db.people
 

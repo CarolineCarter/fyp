@@ -5,14 +5,14 @@ from pymongo import Connection
 import math
 app = Flask(__name__)
 
-#con = Connection("172.17.0.2:27017")
+con = Connection("172.17.0.4:27017")
 #db = con.test_database
 #people = db.people
 
 #people.insert({"name":"Lexa"})
 #people.insert({"name":"Ryan"})
 @app.route('/')
-def hello_world()
+def hello_world():
     #return 'Hello Docker'
 	return render_template('index.html')
 
