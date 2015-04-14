@@ -1,5 +1,6 @@
 function calcListener ( jQuery ) {
-	console.log( "READY!" );
+	console.log( "!" );
+
 	$( "#add" ).click( function ( e ) {
 		var arg1 = $( "#argument1" ).val();
 		var arg2 = $( "#argument2" ).val();
@@ -22,11 +23,12 @@ function calcListener ( jQuery ) {
 // Makes an ajax call to url "resource" supplying arg1 and arg2
 		$.ajax({
 			type: "POST",
-			url: "http://172.17.0.3:8000/add",
+			url: "http://172.17.0.16:8000/add",
 			data: JSON.stringify({ argument1: arg1, argument2: arg2 }),
-			dataType: "jsonp",
-			
-        		jsonp: 'callback',
+			dataType: "json",
+			crossDomain : true,
+		
+        		//jsonp: 'callback',
 			success: function ( data ) {
 				var answer = String(data[ 'answer' ]);
 			console.log( "We got an answer! " + answer );
