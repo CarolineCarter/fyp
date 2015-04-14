@@ -20,7 +20,19 @@ def hello_world():
     #return 'Hello Docker'
     return render_template('index.html')
 
-app.route('T']))
+app.route('/adds', methods=['POST'])
+def add_args():
+	if not request.json:
+		abort(400)
+	try:
+		#name = request.json['name']
+		#arg1 = request.args.get('argument1',0,type=int)
+		#arg2 = request.args.get('argument2',0,type=int)
+		#arg1 = request.json['argument1']
+		#arg2 = request.json['argument2']
+		#answer = arg1 + arg2
+		#return jsonify(answer)
+		con = Connection((os.environ['DB_PORT_27017_TCP_ADDR'], os.environ['DB_PORT_27017_TCP_PORT']))
 		#return (jsonify({'name':name}), 200)
 		
 		db = con.test_database
