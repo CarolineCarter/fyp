@@ -42,7 +42,7 @@ def add_args():
 	except KeyError:
 		abort(400)
 
-@app.route('/add', methods=['POST'])
+@app.route('/add', ///methods=['POST'])
 
 def add_args():
 	if not request.json:
@@ -52,7 +52,7 @@ def add_args():
 		self.response.headers['Access-Control-Allow-Methods'] = "POST"
 		arg1 = request.json['argument1']
 		arg2 = request.json['argument2']
-		answer = arg1 + arg2;
+		answer = arg1 + arg2
 		return (jsonify({'answer':answer}), 200)
 
 	except KeyError:
