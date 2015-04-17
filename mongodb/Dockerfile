@@ -7,8 +7,9 @@ RUN \
    apt-get update && \
    apt-get install -y mongodb-org
 
-VOLUME ["/data/db"]
-WORKDIR /data
+#VOLUME ["/data/db"]
+RUN mkdir -p /data/db
+WORKDIR /data/db
 
 EXPOSE 27017
 

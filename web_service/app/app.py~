@@ -18,7 +18,7 @@ con = Connection((os.environ['DB_PORT_27017_TCP_ADDR'], os.environ['DB_PORT_2701
 @app.route('/')
 def hello_world():
     #return 'Hello Docker'
-    return render_template('index.html')
+    return render_template('172.17.0.4:80/index.html')
 
 app.route('/adds', methods=['POST'])
 def add_args():
@@ -42,14 +42,13 @@ def add_args():
 	except KeyError:
 		abort(400)
 
-@app.route('/add', methods=['POST'])
+@app.route('/add/', methods=["POST"])
 
 def add_args():
 	if not request.json:
 		abort(400)
 	try:
-		self.response.headers['Access-Control-Allow-Origin'] = '*'
-		self.response.headers['Access-Control-Allow-Methods'] = "POST"
+		
 		arg1 = request.json['argument1']
 		arg2 = request.json['argument2']
 		answer = arg1 + arg2
