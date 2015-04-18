@@ -49,9 +49,9 @@ def add_args():
 		abort(400)
 	try:
 		
-		arg1 = request.json['argument1']
-		arg2 = request.json['argument2']
-		answer = arg1 + arg2
+		no1 = request.json['argument1']
+		no2 = request.json['argument2']
+		answer = no1 + no2
 		return (jsonify({'answer':answer}), 200)
 
 	except KeyError:
