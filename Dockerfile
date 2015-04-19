@@ -1,16 +1,13 @@
 FROM ubuntu:latest
-MAINTAINER carter
+MAINTAINER cazza/Caroline
 
-RUN \
-   apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10 && \
-   echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list && \
-   apt-get update && \
-   apt-get install -y mongodb-org
-
-#VOLUME ["/data/db"]
-RUN mkdir -p /data/db
-WORKDIR /data/db
-
-EXPOSE 27017
-
-CMD ["mongod"]
+RUN apt-get update
+RUN apt-get install -y python python-dev python-distribute python-pip python-pymongo
+RUN mkdir /project
+ADD requirements.txt /project/requirements.txt
+RUN pip install simplejson
+RUN pip install -U flask-cors
+WORKDIR /project
+RUN pip install -r requirements.txt
+EXPOSE 8000
+CMD python cpyserver.py
