@@ -42,7 +42,7 @@ def add_args():
 	except KeyError:
 		abort(400)
 
-@app.route('/add/', methods=["POST"])
+@app.rouadd/', methods=["POST"])
 
 def add_args():
 	if not request.json:
