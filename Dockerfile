@@ -6,7 +6,7 @@ RUN apt-get install -y python python-dev python-distribute python-pip python-pym
 RUN mkdir /project
 #ADD requirements.txt /project/requirements.txt
 RUN pip install simplejson
-RUN pstall -U flask-cors
+RUN pip install -U flask-cors
 WORKDIR /project
 RUN pip install -r requirements.txt
 EXPOSE 8000
