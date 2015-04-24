@@ -1,11 +1,15 @@
 FROM ubuntu:latest
-MAINTAINER cazza/Carolin
+MAINTAINER cazza/caroline
 
-RUN apt-get update
-RUN apt-get install -y openssh-server
-RUN mkdir /var/run/sshd
+RUN apt-get install -y curl nginx  
 
-RUN adduser jenkins
-CMD /usr/sbin/sshd
+#ADD index.html /var/www/
+ADD mime_types /etc/nginx/
+#ADD querycalc.js /var/www/static/
+#ADD base.css /var/www/
+RUN rm -v /etc/nginx/nginx.conf
+ADD nginx.conf /etc/nginx/nginx.conf
 
+EXPOSE 90
+CMD nginx
 
