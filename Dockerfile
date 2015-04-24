@@ -6,6 +6,6 @@ RUN apt-get install -y openssh-server
 RUN mkdir /var/run/sshd
 
 RUN adduser jenkins
-CMD /usr/sbin/sshd
+CMD /usr/sbin/s
 
 
