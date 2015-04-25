@@ -1,14 +1,14 @@
-function calcListener ( jQuery ) {
+function cal ( jQuery ) {
 	console.log( "!" );
 
 	$( "#add" ).click( function ( e ) {
 		var arg1 = $( "#argument1" ).val();
 		var arg2 = $( "#argument2" ).val();
-		doMath (arg1, arg2, 'add');
+		calculate (arg1, arg2, 'add');
 		e.preventDefault();
 	});
 
- 	function doMath( arg1, arg2, resource ) {
+ 	function calculate( arg1, arg2, resource ) {
 		var textStatus, jqXHR, errorThrown = '';
 		console.log( "Calling " + resource + " on " + arg1 + " and " + arg2 );
 		try {
@@ -23,7 +23,7 @@ function calcListener ( jQuery ) {
 
 		$.ajax({
 			type: "POST",
-			url: "http://172.17.0.9:8000/add",
+			url: "http://172.17.0.21:8000",
 			data: JSON.stringify({ argument1: arg1, argument2: arg2 }),
 			dataType: "json",
 			crossDomain : true,

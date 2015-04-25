@@ -7,7 +7,6 @@ RUN \
    apt-get update && \
    apt-get install -y mongodb-org
 
-#VOLUME ["/data/db"]
 RUN mkdir -p /data/db
 WORKDIR /data/db
 

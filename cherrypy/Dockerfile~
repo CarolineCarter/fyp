@@ -3,11 +3,10 @@ MAINTAINER cazza/Caroline
 
 RUN apt-get update
 RUN apt-get install -y python python-dev python-distribute python-pip python-pymongo
+RUN pip install cherrypy
 RUN mkdir /project
+
 RUN pip install simplejson
-RUN pip install -U flask-cors
 WORKDIR /project
-RUN pip install -r requirements.txt
 EXPOSE 8000
 CMD python app.py
-

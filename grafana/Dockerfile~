@@ -1,0 +1,3 @@
+FROM tutum/Grafana 
+ADD default /etc/nginx/sites-enabled/default
+

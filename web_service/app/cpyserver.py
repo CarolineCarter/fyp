@@ -7,16 +7,22 @@ import json
 
 if __name__ == '__main__':
 
-    
+
     cherrypy.tree.graft(app, "/add")
-    cherrypy.response.headers["Access-Control-Allow-Origin"] = "172.17.0.4:80"
+    cherrypy.response.headers["Access-Control-Allow-Origin"] = "172.17.0.28:80"
     cherrypy.response.headers["Access-Control-Allow-Methods"] = "POST", "GET"
     cherrypy.response.headers["Access-Control-Allow-Headers"] = "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-    cherrypy.response.headers["Allow"] = "POST"
+    #cherrypy.response.headers["Allow"] = "POST"
     #input_json = cherrypy.request.json
     cherrypy.response.headers["Content-Type"] = "application/json"
     
-    
+    @cherrypy.expose
+    @cherrypy.tools.json_out()
+    @cherrypy.tools.json_in()
+    def get_data(self):
+    	cherrypy.response.headers['Content-Type'] = 'application/json'
+    	datas = {"ABCDEF"}
+    	return datas
     # Unsubscribe the default server
     cherrypy.server.unsubscribe()
 
@@ -24,7 +30,7 @@ if __name__ == '__main__':
     server = cherrypy._cpserver.Server()
  
     
-    server.socket_host = "0.0.0.0"
+    server.socket_host = "172.17.0.29"
     server.socket_port = 8000
     server.thread_pool = 30
      
@@ -40,13 +46,7 @@ if __name__ == '__main__':
         }
     }
    
-    # For SSL Support
-    # server.ssl_module            = 'pyopenssl'
-    # server.ssl_certificate       = 'ssl/certificate.crt'
-    # server.ssl_private_key       = 'ssl/private.key'
-    # server.ssl_certificate_chain = 'ssl/bundle.crt'
-
-    # Subscribe this server
+   
     server.subscribe()
     
     
