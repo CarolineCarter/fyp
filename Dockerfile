@@ -1,17 +1,17 @@
-FROM ubuntu:latest
-MAINTAINER cazza/caroline
+FROM ubuntu:14.04
 
-RUN apt-get install -y curl nginx  
+# Dependencies
+RUN apt-get update -qq
+RUN sudo apt-get install -y -qq nginx-full wget vim
 
+# Kibana
+RUN mkdir -p /opt/kibana
+RUN wget https://download.elasticsearch.org/kibana/kibana/kibana-4.0.0-linux-x64.tar.gz -O /tmp/kibana.tar.gz && \
+ tar zxf /tmp/kibana.tar.gz && mv kibana-4.0.0-linux-x64/* /opt/kibana/
 
-ADD mime_types /etc/nginx/
-ADD querycalc.js /var/www/
-#ADD base.css /var/www/
-RUN rm -v /etc/nginx/nginx.conf
-ADD nginx.conf /etc/nginx/nginx.conf
-ADD base.css /var/www/
-ADD index.html /var/www/
+# Configs
+ADD kibana.yml /opt/kibana/config/kibana.yml
 
-EXPOSE 90
-CMD nginx
+EXPOSE 5601
 
+CMD /opt/kibana/bin/kibana
